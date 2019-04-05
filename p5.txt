@@ -1,0 +1,51 @@
+
+                             Computer Systems
+                                 Project 5
+                                Spring 2019
+
+
+turnin code:  cs_p5
+
+
+Write a program that provides a sequential server listening for
+connections on a port which is specified as the only cmd-line argument.
+The server should sequentially handle one client at a time.
+
+The server should receive messages from clients of this form:
+    put key val
+    get key
+
+The server should print each command that it receives.
+
+For put commands, the server should store the key and associated value
+as character strings.  You may assume that no key or value will be more
+than 32 bytes.  The value of a key put by one client may be used in a get
+command by some subsequent client.  In addition to printing a get command,
+the server should print another message for each get command:
+
+    key val    ## where key and val are replaced by the appropriate values
+
+
+To test, I will run your server this way:
+
+    ./p5 NNNN  ## where NNNN is some port number that I will choose at run time
+
+
+Then, in a separate window, I will run a client something like this:
+
+    nc -q 1 -i 2 system64 NNNN  <  some_input_file
+
+
+TURNIN info:
+    You should submit a tar file of a directory which contains all of the
+    required files (makefile, C source files, header files, etc).
+    Sample tar command to create a tar file from a dir named p5dir:
+	tar cvf p5.tar ./p5dir  ## do *NOT* use full pathname of the dir
+    After un-tarring your project, I will cd to the dir containing
+    it and type:
+        rm -rf p5
+        rm -f *.o
+        make
+    It should build an executable named p5 as described above.
+    Sample un-tar, build, and simple execution will be provided in the script
+    p5testfiles/PREP.py which must execute correctly to be graded further.
