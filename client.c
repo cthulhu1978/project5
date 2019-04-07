@@ -49,6 +49,7 @@ int connect_to_server(int port){
     bzero((void *)&listener, sizeof(listener));
     bcopy((void *)hp->h_addr, (void *)&listener.sin_addr, hp->h_length);
     listener.sin_family = hp->h_addrtype;
+    // Create socket //
     listener.sin_port = htons(port);
     client_socket = socket(AF_INET, SOCK_STREAM, 0);
     error_check(client_socket, "net_connect_to_server socket");
