@@ -34,7 +34,12 @@ int NON_RESERVED_PORT;
 
 int main(int argc, char const *argv[]) {
   // set up structs //
-  for(int i = 0; i < maxStruct; i++){ kv[i].flag = false;}
+  for(int i = 0; i < maxStruct; i++)
+  {
+    kv[i].flag = false;
+    memset(kv[i].key, '\0', sizeof(kv[i].key));
+    memset(kv[i].value, '\0', sizeof(kv[i].value));
+  }
   if (argc < 2) { printf("enter port number \n" ); exit(0); }
   if(strcmp(argv[1], "-hw") == 0) { printf("%s\n","hello world" ); exit(0); }
   NON_RESERVED_PORT = atoi(argv[1]);
@@ -140,7 +145,7 @@ void put_keyvalue(char * buf){
         token = strtok(NULL, " ");
         if(token != NULL) {strcpy(kv[i].value, token); }
         kv[i].flag = true;
-        memset(buf, 0,BUFFER_LEN);
+        memset(buf, '\0',BUFFER_LEN);
         break;
         }
       }
