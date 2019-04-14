@@ -10,9 +10,9 @@
 #include <errno.h>
 #include <stdbool.h>
 
-#define BUFFER_LEN  128
+#define BUFFER_LEN 256 
 #define SERVER_ACK  "Msg acknowledged by Server\n"
-#define maxStruct 50
+#define maxStruct 64 
 
 typedef struct keyvalue{
   bool flag;
